@@ -57,19 +57,6 @@ export class PaymentTowComponent implements OnInit {
       });
   }
 
-  verifyPayment(sessionId: string) {
-    this.http.post<{ success: boolean }>('http://localhost:3000/payment/verify-payment', { sessionId })
-      .subscribe((response) => {
-        if (response.success) {
-          this.paymentSuccess = true;
-          this.showModal = true;
-        } else {
-          this.paymentError = 'Payment verification failed';
-          this.showModal = true;
-        }
-      });
-  }
-
   closeModal() {
     this.showModal = false;
     this.paymentError = '';
