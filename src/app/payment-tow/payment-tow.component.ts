@@ -16,6 +16,7 @@ export class PaymentTowComponent implements OnInit {
   private router = inject(Router);
 
   amount: number = 0;
+  plan: string = '';
   paymentSuccess: boolean = false;
   paymentError: string = '';
   showModal: boolean = false;
@@ -23,7 +24,7 @@ export class PaymentTowComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.amount = params['amount'] ? +params['amount'] : 0;
-  
+      this.plan = params['plan'] ? params['plan'] : '';
       if (params['session_id']) {
         // Don't call pay() again, just show success message
         this.paymentSuccess = true;
@@ -46,7 +47,7 @@ export class PaymentTowComponent implements OnInit {
       return;
     }
 
-    this.http.post<{ sessionUrl: string }>('http://localhost:3000/payment/create-checkout-session', { amount: this.amount * 100 })
+    this.http.post<{ sessionUrl: string }>('http://localhost:3000/payment/create-checkout-session', { amount: this.amount * 100, plan: this.plan })
       .subscribe((response) => {
         if (response.sessionUrl) {
           window.location.href = response.sessionUrl; //  Redirect to Stripe Checkout

@@ -15,7 +15,7 @@
           <span class="text-sm font-medium text-gray-700">/month</span>
         </p>
 
-        <a [routerLink]="['/payment-two']" [queryParams]="{ amount: 20 }"
+        <a [routerLink]="['/payment-two']" [queryParams]="{ amount: 20, plan: 'starter' }"
           class="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6">
           Get Started
         </a>
@@ -99,7 +99,7 @@
         </p>
 
         <a class="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          [routerLink]="['/payment']" [queryParams]="{ amount: 30 }">
+          [routerLink]="['/payment-two']" [queryParams]="{ amount: 30, plan: 'Pro' }">
           Get Started
         </a>
       </div>
@@ -181,7 +181,7 @@
         </p>
 
         <a class="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          [routerLink]="['/payment']" [queryParams]="{ amount: 100 }">
+          [routerLink]="['/payment-two']" [queryParams]="{ amount: 100, plan: 'Enterprise' }">
           Get Started
         </a>
       </div>
